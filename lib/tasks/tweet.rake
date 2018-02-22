@@ -10,8 +10,16 @@ namespace :tweet do
       config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
     end
 
-    client.home_timeline(count: 200).each do |tweet|
-      Tweet.create(tweet_id: tweet.id)
+    last_tweet = nil
+    4.times do
+      params = {count: 200}
+      params[:max_id] = last_tweet.tweet_id if last_tweet
+
+      client.home_timeline(params).each do |fetched_tweet|
+        tweet = Tweet.find_or_initialize_by(tweet_id: fetched_tweet.id)
+        tweet.update(favorite_count:fetched_tweet.favorite_count)
+        last_tweet = tweet
+      end
     end
   end
 end

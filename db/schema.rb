@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20180221111302) do
   create_table "tweets", force: :cascade do |t|
     t.string "tweet_id", null: false
     t.integer "favorite_count", null: false
+    t.string "text", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tweet_id"], name: "index_tweets_on_tweet_id", unique: true

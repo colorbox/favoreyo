@@ -3,6 +3,7 @@ class CreateTweets < ActiveRecord::Migration[5.1]
     create_table :tweets do |t|
       t.string :tweet_id, null: false
       t.integer :favorite_count, null: false
+      t.string :text, null: false
 
       t.timestamps
 

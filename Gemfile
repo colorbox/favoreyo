@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.1.5'
-gem 'sqlite3'
+
 gem 'puma'
 gem 'sass-rails'
 gem 'uglifier'
@@ -14,6 +14,7 @@ gem 'coffee-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'twitter'
+gem 'pg'
 
 group :development, :test do
   gem 'pry-byebug'

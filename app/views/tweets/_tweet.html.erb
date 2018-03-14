@@ -1,1 +1,2 @@
-<%= tweet.embed_html.html_safe %>
+<% html = tweet.embed_html %>
+<%= html.html_safe if html %>

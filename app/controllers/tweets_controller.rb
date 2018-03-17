@@ -1,6 +1,8 @@
 class TweetsController < ApplicationController
   def index
-    @tweets = Tweet.last(50)
+    tweets = Tweet.last(50)
+    @earlier_tweets = tweets[0..5]
+    @later_tweets = tweets - @earlier_tweets
   end
 
   def show

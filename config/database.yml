@@ -6,14 +6,10 @@ default: &default
 development:
   <<: *default
   database: favoreyo_development
-  username: postgres
-  password:
 
 test:
   <<: *default
   database: favoreyo_test
-  username: postgres
-  password:
 
 production:
   <<: *default

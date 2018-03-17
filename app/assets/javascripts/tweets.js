@@ -7,9 +7,8 @@ $(window).scroll(function(event) {
             wS = $(window).scrollTop();
 
         if (wS > (hT+hH-1.5*wH)) {
-            $.get(`tweets/${this.id}.js`)
+            $.get("tweets/" + this.id + ".js")
             this.className = "fetching-container"
-            console.log(`tweets/${this.id}.js`)
         }
     });
 });

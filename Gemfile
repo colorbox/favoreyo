@@ -15,6 +15,7 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'twitter'
 gem 'pg'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'pry-byebug'

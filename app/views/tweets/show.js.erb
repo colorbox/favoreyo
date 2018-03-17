@@ -1,0 +1,1 @@
+$('p.fetching-container#<%= @tweet.id %>').replaceWith('<%= j @tweet.embed_html&.html_safe %>');

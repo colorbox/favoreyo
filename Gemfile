@@ -7,29 +7,30 @@ end
 
 gem 'rails', '~> 5.1.5'
 
+gem 'coffee-rails'
+gem 'jbuilder'
+gem 'jquery-rails'
+gem 'pg'
 gem 'puma'
 gem 'sass-rails'
-gem 'uglifier'
-gem 'coffee-rails'
+gem 'slim'
 gem 'turbolinks'
-gem 'jbuilder'
 gem 'twitter'
-gem 'pg'
-gem 'jquery-rails'
+gem 'uglifier'
 
 group :development, :test do
-  gem 'pry-byebug'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'dotenv-rails'
   gem 'capybara'
+  gem 'dotenv-rails'
+  gem 'pry-byebug'
   gem 'selenium-webdriver'
 end
 
 group :development do
-  gem 'web-console'
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
+  gem 'web-console'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

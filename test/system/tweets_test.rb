@@ -5,7 +5,7 @@ class TweetsTest < ApplicationSystemTestCase
     travel_to Time.zone.local(2018, 3, 5, 0, 00, 0)
     visit tweets_path
 
-    assert_text 'loading...'
+    assert_text '使ったことのないgem'
     assert_text '勤怠自動打刻マン'
     travel_back
   end

@@ -14,4 +14,5 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
-// = require_tree .
+//= require infinite-scroll.pkgd.min.js
+//= require_tree .

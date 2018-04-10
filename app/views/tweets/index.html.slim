@@ -2,4 +2,5 @@
 #tweets
   = render @tweets
 
-= paginate @tweets
+#next
+  = link_to "...", tweets_path(last: @tweets.last.id), remote: true

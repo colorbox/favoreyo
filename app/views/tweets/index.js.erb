@@ -1,3 +1,4 @@
 <% @tweets.each do |tweet| %>
   -$('#tweets').append('<%= j tweet.embed_html&.html_safe %>');
 <% end %>
+-$('#next').replaceWith('<%= link_to "...", tweets_path(last: @tweets.last.id), remote: true %>')

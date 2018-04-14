@@ -2,5 +2,4 @@
 #tweets
   = render @tweets
 
-#next
-  = link_to "...", tweets_path(last: @tweets.last.id), remote: true
+#next last_id="#{@tweets.last.id}"

@@ -19,7 +19,7 @@ namespace :tweet do
       client.home_timeline(params).each do |fetched_tweet|
         next if fetched_tweet.favorite_count < FAVORITE_COUNT
         tweet = Tweet.find_or_initialize_by(tweet_id: fetched_tweet.id)
-        tweet.update(favorite_count:fetched_tweet.favorite_count, text: fetched_tweet.text)
+        tweet.update(favorite_count:fetched_tweet.favorite_count, tweeted_at: fetched_tweet.created_at.to_datetime)
         last_tweet = tweet
       end
     end

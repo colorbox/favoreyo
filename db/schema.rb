@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2018_04_16_145450) do
     t.integer "favorite_count", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "tweeted_at"
     t.index ["tweet_id"], name: "index_tweets_on_tweet_id", unique: true
   end
 

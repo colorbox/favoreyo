@@ -15,13 +15,16 @@ namespace :tweet do
     4.times do
       params = {count: 200}
       params[:max_id] = last_tweet.tweet_id if last_tweet
+      fetched_tweets = []
 
       client.home_timeline(params).each do |fetched_tweet|
         next if fetched_tweet.favorite_count < FAVORITE_COUNT
         tweet = Tweet.find_or_initialize_by(tweet_id: fetched_tweet.id)
-        tweet.update(favorite_count:fetched_tweet.favorite_count, text: fetched_tweet.text)
+        tweet.favorite_count = fetched_tweet.favorite_count
+        fetched_tweets << tweet
         last_tweet = tweet
       end
+      fetched_tweets.reverse.each(&:save)
     end
   end
 end

@@ -27,4 +27,11 @@ namespace :tweet do
       fetched_tweets.reverse.each(&:save)
     end
   end
+
+  desc "remove old tweets in system"
+  task remove: :environment do
+    return if Tweet.count < 5
+
+    Tweet.order(id: :asc).limit(Tweet.count/2).delete_all
+  end
 end

@@ -1,0 +1,2 @@
+class TimelineLog < ApplicationRecord
+end

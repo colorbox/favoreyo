@@ -30,7 +30,7 @@ namespace :tweet do
 
   desc "remove old tweets in system"
   task remove: :environment do
-    return if Tweet.count < 5
+    return if Tweet.count < 1000
 
     Tweet.order(id: :asc).limit(Tweet.count/2).delete_all
   end

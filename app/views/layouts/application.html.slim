@@ -7,4 +7,5 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    = link_to 'twitter login', "/auth/twitter?callback_url=#{new_session_url}"
     = yield

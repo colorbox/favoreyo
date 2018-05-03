@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  root 'tweets#index'
+  root 'sessions#new'
 
   resources :sessions, only: %i(new)
 
-  resources :tweets, only: %i(index show)
+  resources :user, param: :screen_name, only: %i() do
+    resources :tweets, only: %i(index show)
+  end
 end

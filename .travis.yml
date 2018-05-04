@@ -19,9 +19,6 @@ addons:
     packages:
       - google-chrome-stable
 
-before_install:
-  - google-chrome-stable --headless --no-sandbox
-
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp ./.travis/database.yml.travis config/database.yml

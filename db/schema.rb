@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2018_04_25_140854) do
 
   create_table "users", force: :cascade do |t|
     t.string "screen_name", null: false
-    t.string "twitter_id", null: false
+    t.string "twitter_uid", null: false
     t.string "access_token"
     t.string "access_token_secret"
     t.datetime "created_at", null: false

@@ -14,4 +14,11 @@ class SessionsController < ApplicationController
     session[:twitter_uid] = auth.uid
     redirect_to root_path
   end
+
+  def destroy
+    session[:token] = nil
+    session[:token_secret] = nil
+    session[:twitter_uid] = nil
+    redirect_to root_path
+  end
 end

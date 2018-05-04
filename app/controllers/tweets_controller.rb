@@ -15,6 +15,6 @@ class TweetsController < ApplicationController
   private
 
   def set_user
-    @user = User.find_by_twitter_id(session[:twitter_id])
+    @user = User.find_by_twitter_uid(session[:twitter_uid])
   end
 end

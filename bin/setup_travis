@@ -1,0 +1,8 @@
+wget "http://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip"
+unzip chromedriver_linux64.zip
+sudo apt-get install libnss3
+sudo apt-get --only-upgrade install google-chrome-stable
+sudo cp chromedriver /usr/local/bin/.
+sudo chmod +x /usr/local/bin/chromedriver
+sh -e /etc/init.d/xvfb start
+sleep 3

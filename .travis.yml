@@ -13,17 +13,13 @@ env:
   CHROME_DRIVER_VERSION: '2.38'
 
 addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+  chrome: stable
 
 before_script:
+  - bin/setup_travis
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp ./.travis/database.yml.travis config/database.yml
   - bundle install
-  - bin/setup_travis
 
 script:
   - bundle exec rails test:system

@@ -5,7 +5,7 @@ class TweetsTest < ApplicationSystemTestCase
 
   test "visiting the tweets index" do
     travel_to Time.zone.local(2018, 3, 5, 0, 00, 0)
-    visit tweets_path
+    visit user_tweets_path(user_screen_name: User.first.screen_name)
     last_tweet = all('.tweet').last
     scroll_to(last_tweet)
 

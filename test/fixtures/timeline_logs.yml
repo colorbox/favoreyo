@@ -1,11 +1,27 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+timeline1:
+  tweet: tweet1
+  user: user1
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+timeline2:
+  tweet: tweet2
+  user: user1
+
+timeline3:
+  tweet: tweet3
+  user: user1
+
+timeline4:
+  tweet: tweet4
+  user: user1
+
+timeline5:
+  tweet: tweet5
+  user: user1
+
+timeline6:
+  tweet: tweet6
+  user: user1
+
+timeline7:
+  tweet: tweet7
+  user: user1

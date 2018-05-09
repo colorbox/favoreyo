@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_16_145450) do
+ActiveRecord::Schema.define(version: 2018_04_25_140854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "timeline_logs", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "tweet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tweet_id"], name: "index_timeline_logs_on_tweet_id"
+    t.index ["user_id"], name: "index_timeline_logs_on_user_id"
+  end
 
   create_table "tweets", force: :cascade do |t|
     t.string "tweet_id", null: false
@@ -21,6 +30,15 @@ ActiveRecord::Schema.define(version: 2018_04_16_145450) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tweet_id"], name: "index_tweets_on_tweet_id", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "screen_name", null: false
+    t.string "twitter_uid", null: false
+    t.string "access_token"
+    t.string "access_token_secret"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

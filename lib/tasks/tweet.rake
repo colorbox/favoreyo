@@ -19,8 +19,8 @@ namespace :tweet do
         fetched_tweets = []
 
         client.home_timeline(params).each do |fetched_tweet|
-          next if fetched_tweet.favorite_count < FAVORITE_COUNT
-          tweet = Tweet.find_or_initialize_by(tweet_id: fetched_tweet.id)
+          next if user.tweets.find_by(tweet_id: fetched_tweet.id) || fetched_tweet.favorite_count < FAVORITE_COUNT
+          tweet = user.tweets.build(tweet_id: fetched_tweet.id)
           tweet.favorite_count = fetched_tweet.favorite_count
           fetched_tweets << tweet
           last_tweet = tweet

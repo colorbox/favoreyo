@@ -1,27 +1,56 @@
-timeline1:
+timeline1_1:
   tweet: tweet1
   user: user1
 
-timeline2:
+timeline1_2:
   tweet: tweet2
   user: user1
 
-timeline3:
+timeline1_3:
   tweet: tweet3
   user: user1
 
-timeline4:
+timeline1_4:
   tweet: tweet4
   user: user1
 
-timeline5:
+timeline1_5:
   tweet: tweet5
   user: user1
 
-timeline6:
+timeline1_6:
   tweet: tweet6
   user: user1
 
-timeline7:
+timeline1_7:
   tweet: tweet7
   user: user1
+
+timeline2_1:
+  tweet: tweet1
+  user: user2
+
+timeline2_2:
+  tweet: tweet2
+  user: user2
+
+timeline2_3:
+  tweet: tweet3
+  user: user2
+
+timeline2_4:
+  tweet: tweet4
+  user: user2
+
+timeline2_5:
+  tweet: tweet5
+  user: user2
+
+timeline2_6:
+  tweet: tweet6
+  user: user2
+
+timeline2_7:
+  tweet: tweet7
+  user: user2
+

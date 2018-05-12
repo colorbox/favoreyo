@@ -1,3 +1,7 @@
 user1:
   screen_name: 'test_account'
   twitter_uid: 'testuid'
+
+user2:
+  screen_name: 'test_account2'
+  twitter_uid: 'testuid2'

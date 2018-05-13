@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resource :sessions, only: %i(new destroy)
 
-  resources :users, param: :screen_name, only: %i(index) do
+  resources :users, param: :screen_name, only: %i(index destroy) do
     resources :tweets, only: %i(index)
   end
 end

@@ -3,6 +3,9 @@ namespace :tweet do
   desc "fetch popular tweet from timeline"
   task fetch: :environment do
     FAVORITE_COUNT = 50
+    TWEET_FETCH_LIMIT = 200
+    # timeline API limit
+    FETCHING_COUNT_LIMIT = 4
 
     User.all.each do |user|
       client = Twitter::REST::Client.new do |config|
@@ -13,21 +16,25 @@ namespace :tweet do
       end
 
       last_tweet = nil
-      4.times do
-        params = {count: 200}
+      FETCHING_COUNT_LIMIT.times do
+        params = {count: TWEET_FETCH_LIMIT}
         params[:max_id] = last_tweet.tweet_id if last_tweet
-        fetched_tweets = []
 
         client.home_timeline(params).each do |fetched_tweet|
-          next if user.tweets.find_by(tweet_id: fetched_tweet.id) || fetched_tweet.favorite_count < FAVORITE_COUNT
-          tweet = user.tweets.build(tweet_id: fetched_tweet.id)
+          fetched = user.tweets.map(&:tweet_id).include?(fetched_tweet.id.to_s)
+          next if fetched || user.tweets.find_by(tweet_id: fetched_tweet.id) || fetched_tweet.favorite_count < FAVORITE_COUNT
+          tweet = Tweet.find_by(tweet_id: fetched_tweet.id)
+
+          if tweet.nil?
+            tweet = user.tweets.build(tweet_id: fetched_tweet.id)
+          else
+            user.tweets << tweet
+          end
           tweet.favorite_count = fetched_tweet.favorite_count
-          fetched_tweets << tweet
           last_tweet = tweet
         end
-        user.tweets.append(fetched_tweets.reverse)
-        user.save
       end
+      user.save!
     end
   end
 

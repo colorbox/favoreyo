@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   resources :tweets, only: %i(index) do
-    resources :favorites, only: %i(create)
+    resource :favorite, only: %i(create destroy)
   end
 end

@@ -1,4 +1,5 @@
 .tweet
   = tweet.embed_html&.html_safe
 
-  = button_to 'fav', tweet_favorite_path(tweet.id)
+  .fav-button id="#{tweet.id}"
+    = button_to 'fav', tweet_favorite_path(tweet.id), remote: true

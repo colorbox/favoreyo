@@ -7,7 +7,9 @@ class FavoritesController < ApplicationController
     @client.favorite!(@tweet.tweet_id)
     respond_to {|format| format.js }
   rescue Twitter::Error::AlreadyFavorited
-    respond_to {|format| format.js }
+    respond_to {|format|
+      format.js { render 'already_favorited'}
+    }
   end
 
   def destroy

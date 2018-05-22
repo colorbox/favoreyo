@@ -15,6 +15,10 @@ class FavoritesController < ApplicationController
   def destroy
     @client.unfavorite!(@tweet.tweet_id)
     respond_to {|format| format.js }
+  rescue Twitter::Error::NotFound
+    respond_to {|format|
+      format.js { render 'not_found'}
+    }
   end
 
   private

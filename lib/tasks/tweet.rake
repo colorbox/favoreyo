@@ -38,10 +38,11 @@ namespace :tweet do
     end
   end
 
+  TWEET_STORE_LIMIT = 1000
   desc "remove old tweets in system"
   task remove: :environment do
-    return if Tweet.count < 1000
+    return if Tweet.count < TWEET_STORE_LIMIT
 
-    Tweet.order(id: :asc).limit(Tweet.count/2).delete_all
+    Tweet.order(id: :asc).limit(Tweet.count/2).destroy_all
   end
 end

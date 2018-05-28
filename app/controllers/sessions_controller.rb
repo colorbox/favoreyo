@@ -17,7 +17,6 @@ class SessionsController < ApplicationController
 
     redirect_to root_path
   rescue Twitter::Error::TooManyRequests => e
-    debugger
     redirect_to root_path
   end
 

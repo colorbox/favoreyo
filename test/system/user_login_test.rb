@@ -4,15 +4,9 @@ OmniAuth.config.test_mode = true
 
 class UserIndexTest < ApplicationSystemTestCase
   setup do
-    stub_request(:get, 'https://api.twitter.com/1.1/statuses/home_timeline.json?count=200').to_return(
+    stub_request(:get, /https:\/\/api.twitter.com\/1.1\/statuses\/home_timeline.json.*/).to_return(
       body: File.read(File.join("test", "fixtures", "statuses.json")),
       headers: {content_type: 'application/json; charset=utf-8'})
-
-    stub_request(:get, 'https://api.twitter.com/1.1/statuses/home_timeline.json?count=200&max_id=244111636544225280').to_return(
-      body: File.read(File.join("test", "fixtures", "statuses.json")),
-      headers: {content_type: 'application/json; charset=utf-8'})
-
-
   end
 
   test 'user login triggers tweet fetching user3 tweets count up 1' do

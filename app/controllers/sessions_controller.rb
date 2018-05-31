@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     user.fetch_favorites_from_timeline if user.tweets.count.zero?
 
     redirect_to root_path
-  rescue Twitter::Error::TooManyRequests => e
+  rescue Twitter::Error::TooManyRequests
     redirect_to root_path
   end
 

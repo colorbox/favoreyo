@@ -5,3 +5,7 @@ user1:
 user2:
   screen_name: 'test_account2'
   twitter_uid: 'testuid2'
+
+user3:
+  screen_name: 'test_account3'
+  twitter_uid: 'testuid3'

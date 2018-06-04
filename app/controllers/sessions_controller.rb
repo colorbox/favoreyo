@@ -12,6 +12,11 @@ class SessionsController < ApplicationController
     session[:token] = auth.credentials.token
     session[:token_secret] = auth.credentials.secret
     session[:twitter_uid] = auth.uid
+
+    user.fetch_favorites_from_timeline if user.tweets.count.zero?
+
+    redirect_to root_path
+  rescue Twitter::Error::TooManyRequests
     redirect_to root_path
   end
 

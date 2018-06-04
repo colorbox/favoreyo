@@ -1,5 +1,6 @@
 .tweet
   = tweet.embed_html&.html_safe
 
-  .fav-button id="#{tweet.id}"
-    = button_to 'ふぁぼる', tweet_favorite_path(tweet.id), remote: true
+  - if user.present?
+    .fav-button id="#{tweet.id}"
+      = button_to 'ふぁぼる', tweet_favorite_path(tweet.id), remote: true

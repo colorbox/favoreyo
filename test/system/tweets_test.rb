@@ -46,7 +46,7 @@ class TweetsTest < ApplicationSystemTestCase
 
     click_link('twitter login')
 
-    visit user_tweets_path(User.first.screen_name)
+    click_link(users(:user1).screen_name)
 
     add_favorite_button = first(:button, value: 'ふぁぼる')
 

@@ -16,18 +16,18 @@ class TweetsTest < ApplicationSystemTestCase
 
   setup do
     stub_request(:post, /https:\/\/api.twitter.com\/1.1\/favorites\/create.json.*/).to_return(
-      body: File.read(File.join("test", "fixtures", "statuses.json")),
+      body: File.read(File.join("test", "fixtures", "status.json")),
       headers: {content_type: 'application/json; charset=utf-8'})
 
     stub_request(:delete, /https:\/\/api.twitter.com\/1.1\/favorites\/destroy.json.*/).to_return(
-      body: File.read(File.join("test", "fixtures", "statuses.json")),
+      body: File.read(File.join("test", "fixtures", "status.json")),
       headers: {content_type: 'application/json; charset=utf-8'})
   end
 
   test ' there are no buttons for no login user' do
     visit user_tweets_path(User.first.screen_name)
 
-    assert_nil(first(:button, value: 'ふぁぼる', visible: :all))
+    page.assert_no_selector(:button, 'ふぁぼる')
   end
 
   test 'add post create favorite' do

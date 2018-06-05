@@ -11,10 +11,4 @@ class TweetsController < ApplicationController
       format.js
     end
   end
-
-  private
-
-  def set_user
-    @user = User.find_by(twitter_uid: session[:twitter_uid])
-  end
 end

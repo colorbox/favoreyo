@@ -1,0 +1,2 @@
+-$(".fav-button#<%= @tweet.id %>").replaceWith('<div class="fav-button" id="<%= @tweet.id %>"><%= button_to 'ふぁぼる', tweet_favorite_path(@tweet.id), remote: true %></div>');
+-$(".fav-button#<%= @tweet.id %>").append('<div class="fav-button__warn">まだふぁぼってません</div>');

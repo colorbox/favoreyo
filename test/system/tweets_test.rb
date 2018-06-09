@@ -57,4 +57,32 @@ class TweetsTest < ApplicationSystemTestCase
     delete_favorite_button = first(:button, value: 'ふぁぼらない')
     assert_not_nil(delete_favorite_button)
   end
+
+  test 'load with scroll will load alsp add favorite button' do
+    response_params = {
+      uid: users(:user1).twitter_uid,
+      info: {
+        nickname: users(:user1).screen_name
+      },
+      credentials: {
+        token: users(:user1).access_token,
+        secret: users(:user1).access_token_secret
+      }
+    }
+    OmniAuth.config.add_mock(:twitter, response_params)
+    visit users_path
+    click_link('twitter login')
+
+    click_link(users(:user1).screen_name)
+
+    assert_equal(5, all(:button, value: 'ふぁぼる').count)
+
+    last_tweet = all('.tweet').last
+    scroll_to(last_tweet)
+
+    last_tweet = timeline_logs(:timeline1_7).tweet
+    find("div.fav-button[id='#{last_tweet.id}']")
+
+    assert_equal(7, all(:button, value: 'ふぁぼる').count)
+  end
 end

@@ -24,8 +24,6 @@ class TweetsTest < ApplicationSystemTestCase
 
     assert_text 'Unker Tweet'
 
-    pp page.html
-
     travel_back
   end
 

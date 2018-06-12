@@ -3,14 +3,46 @@ require 'application_system_test_case'
 class TweetsTest < ApplicationSystemTestCase
   include ScrolHelper
 
+  setup do
+
+    stub_request(:get, /https:\/\/api.twitter.com\/1.1\/statuses\/oembed.json\?id=977823403674542081/).to_return(
+      body: File.read(File.join("test", "fixtures", "oembed.json")),
+      headers: {content_type: 'application/json; charset=utf-8'})
+    stub_request(:get, /https:\/\/api.twitter.com\/1.1\/statuses\/oembed.json\?id=977896444001624065/).to_return(
+      body: File.read(File.join("test", "fixtures", "oembed.json")),
+      headers: {content_type: 'application/json; charset=utf-8'})
+    stub_request(:get, /https:\/\/api.twitter.com\/1.1\/statuses\/oembed.json\?id=977819659578761217/).to_return(
+      body: File.read(File.join("test", "fixtures", "oembed.json")),
+      headers: {content_type: 'application/json; charset=utf-8'})
+    stub_request(:get, /https:\/\/api.twitter.com\/1.1\/statuses\/oembed.json\?id=977840007917461509/).to_return(
+      body: File.read(File.join("test", "fixtures", "oembed.json")),
+      headers: {content_type: 'application/json; charset=utf-8'})
+    stub_request(:get, /https:\/\/api.twitter.com\/1.1\/statuses\/oembed.json\?id=977830419201589249/).to_return(
+      body: File.read(File.join("test", "fixtures", "oembed.json")),
+      headers: {content_type: 'application/json; charset=utf-8'})
+    stub_request(:get, /https:\/\/api.twitter.com\/1.1\/statuses\/oembed.json\?id=977789121501446144/).to_return(
+      body: File.read(File.join("test", "fixtures", "oembed.json")),
+      headers: {content_type: 'application/json; charset=utf-8'})
+
+    stub_request(:get, /https:\/\/api.twitter.com\/1.1\/statuses\/oembed.json\?id=977828032156024832/).to_return(
+      body: File.read(File.join("test", "fixtures", "fetch_last_embed_tweet.json")),
+      headers: {content_type: 'application/json; charset=utf-8'})
+
+  end
+
   test 'visiting the tweets index and check loading additional tweets with scrol' do
     travel_to Time.zone.local(2018, 3, 5, 0, 00, 0)
     visit user_tweets_path(User.first.screen_name)
     last_tweet = all('.tweet').last
+
+    assert_text 'Powerful cartoon'
+
     scroll_to(last_tweet)
 
-    assert_text '使ったことのないgem'
-    assert_text '勤怠自動打刻マン'
+    assert_text 'Unker Tweet'
+
+    pp page.html
+
     travel_back
   end
 

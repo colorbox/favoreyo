@@ -9,7 +9,7 @@ class UserIndexTest < ApplicationSystemTestCase
       headers: {content_type: 'application/json; charset=utf-8'})
   end
 
-  test 'user login triggers tweet fetching user3 tweets count up 1' do
+  test 'user login triggers tweet if user has no tweet' do
     response_params = {
       uid: users(:user3).twitter_uid,
       info: {

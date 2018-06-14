@@ -3,7 +3,7 @@ require 'application_system_test_case'
 class TweetsTest < ApplicationSystemTestCase
   include ScrolHelper
 
-  test 'visiting the tweets index' do
+  test 'visiting the tweets index and check loading additional tweets with scrol' do
     travel_to Time.zone.local(2018, 3, 5, 0, 00, 0)
     visit user_tweets_path(User.first.screen_name)
     last_tweet = all('.tweet').last
@@ -30,7 +30,7 @@ class TweetsTest < ApplicationSystemTestCase
     page.assert_no_selector(:button, 'ふぁぼる')
   end
 
-  test 'add post create favorite' do
+  test 'ふぁぼる button get change ふぁぼらない when user click on it' do
     response_params = {
       uid: users(:user1).twitter_uid,
       info: {
@@ -58,7 +58,7 @@ class TweetsTest < ApplicationSystemTestCase
     assert_not_nil(delete_favorite_button)
   end
 
-  test 'load with scroll will load alsp add favorite button' do
+  test 'scroll load will load also ふぁぼる buttons' do
     response_params = {
       uid: users(:user1).twitter_uid,
       info: {

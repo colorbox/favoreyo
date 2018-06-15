@@ -3,7 +3,7 @@ require 'application_system_test_case'
 OmniAuth.config.test_mode = true
 
 class UserDeleteTest < ApplicationSystemTestCase
-  test 'delete user confirm user index and not affect other user tweet' do
+  test 'deleting user from user index and deliting not affect other user tweet' do
 
     response_params = {
       uid: users(:user1).twitter_uid,

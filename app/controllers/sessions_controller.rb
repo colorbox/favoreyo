@@ -21,9 +21,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:token] = nil
-    session[:token_secret] = nil
-    session[:twitter_uid] = nil
+    reset_session
     redirect_to root_path
   end
 end

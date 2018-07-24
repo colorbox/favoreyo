@@ -4,7 +4,6 @@ class CreateTimelineLogs < ActiveRecord::Migration[6.0]
       t.references :user
       t.references :tweet
 
-
       t.timestamps
     end
   end

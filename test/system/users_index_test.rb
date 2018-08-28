@@ -1,6 +1,6 @@
 require 'application_system_test_case'
 
-class UserIndexTest < ApplicationSystemTestCase
+class UsersIndexTest < ApplicationSystemTestCase
   test 'visit user index and there is user name' do
     visit users_path
 

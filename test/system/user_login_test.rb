@@ -2,7 +2,7 @@ require 'application_system_test_case'
 
 OmniAuth.config.test_mode = true
 
-class UserIndexTest < ApplicationSystemTestCase
+class UserLoginTest < ApplicationSystemTestCase
   setup do
     stub_request(:get, /https:\/\/api.twitter.com\/1.1\/statuses\/home_timeline.json.*/).to_return(
       body: File.read(File.join("test", "fixtures", "statuses.json")),

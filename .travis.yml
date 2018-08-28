@@ -8,6 +8,7 @@ rvm:
 
 services:
   - postgresql
+
 env:
   DISPLAY: :99.0
   CHROME_DRIVER_VERSION: '2.38'

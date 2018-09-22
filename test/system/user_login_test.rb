@@ -28,7 +28,7 @@ class UserLoginTest < ApplicationSystemTestCase
 
     click_link('twitter login')
 
-    assert_text('logout')
+    assert_text('mypage')
 
     assert(users(:user3).tweets, 1)
   end

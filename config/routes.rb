@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'users#index'
 
+  resource :mypage, only: %i(index)
+
   resource :sessions, only: %i(new destroy)
 
   resources :users, param: :screen_name, only: %i(index destroy) do

@@ -8,8 +8,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     - if @user
-      = link_to 'logout', sessions_path, method: :delete
-      = link_to 'delete account', user_path(screen_name: @user.screen_name), method: :delete
+      = link_to 'mypage', mypage_path
     - else
       = link_to 'twitter login', "/auth/twitter?callback_url=#{new_sessions_url}"
     = yield

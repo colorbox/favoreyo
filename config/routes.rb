@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'users#index'
 
-  resource :mypage, only: %i(index)
+  resource :mypage, only: %i(show)
 
   resource :sessions, only: %i(new destroy)
 

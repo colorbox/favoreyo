@@ -13,4 +13,8 @@ class UsersController < ApplicationController
     session[:twitter_uid] = nil
     redirect_to root_path
   end
+
+  def update
+    @user.update!(timeline_published: !@user.timeline_published)
+  end
 end

@@ -1,2 +1,6 @@
 = link_to 'logout', sessions_path, method: :delete
 = link_to 'delete account', user_path(screen_name: @user.screen_name), method: :delete
+- if @user.timeline_published
+  = button_to 'unpublish timeline', user_path(@user), method: :patch
+- else
+  = button_to 'publish timeline', user_path(@user), method: :patch

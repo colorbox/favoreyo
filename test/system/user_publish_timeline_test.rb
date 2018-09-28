@@ -12,7 +12,7 @@ class UserPublishTImelineTest < ApplicationSystemTestCase
   test 'user publish timeline and anyone can see it' do
     visit users_path
 
-    click_link(users(:user2).screen_name)
+    assert_no_text(users(:user2).screen_name)
 
     assert_equal(0, all('.tweet').count)
 

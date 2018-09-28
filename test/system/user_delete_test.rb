@@ -19,7 +19,6 @@ class UserDeleteTest < ApplicationSystemTestCase
 
     visit users_path
     assert_text(users(:user1).screen_name)
-    assert_text(users(:user2).screen_name)
 
     click_link('twitter login')
 

@@ -15,7 +15,7 @@ class TweetsTest < ApplicationSystemTestCase
 
   test 'visiting the tweets index and check loading additional tweets with scrol' do
     travel_to Time.zone.local(2018, 3, 5, 0, 00, 0)
-    visit user_tweets_path(User.first.screen_name)
+    visit user_tweets_path(users(:user1).screen_name)
     last_tweet = all('.tweet').last
 
     assert_text 'Powerful cartoon'
@@ -38,7 +38,7 @@ class TweetsTest < ApplicationSystemTestCase
   end
 
   test ' there are no buttons for no login user' do
-    visit user_tweets_path(User.first.screen_name)
+    visit user_tweets_path(users(:user1).screen_name)
 
     page.assert_no_selector(:button, 'ふぁぼる')
   end

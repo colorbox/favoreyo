@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_19_114117) do
+ActiveRecord::Schema.define(version: 2018_10_05_132125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2018_09_19_114117) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "timeline_published", default: false, null: false
+    t.integer "favorite_threshold", default: 50, null: false
   end
 
 end

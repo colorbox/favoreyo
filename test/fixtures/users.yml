@@ -4,18 +4,22 @@ user1:
   access_token: 'access_token'
   access_token_secret: 'access_token_secret'
   timeline_published: true
+  favorite_threshold: 50
 
 user2:
   screen_name: 'test_account2'
   twitter_uid: 'testuid2'
   timeline_published: false
+  favorite_threshold: 50
 
 user3:
   screen_name: 'test_account3'
   twitter_uid: 'testuid3'
   timeline_published: false
+  favorite_threshold: 50
 
 user4:
   screen_name: 'test_account4'
   twitter_uid: 'testuid4'
   timeline_published: true
+  favorite_threshold: 50

@@ -15,6 +15,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update!(timeline_published: !@user.timeline_published)
+    @user.update!(user_params)
+    redirect_to mypage_path
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:timeline_published, :favorite_threshold)
   end
 end

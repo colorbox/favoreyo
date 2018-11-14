@@ -2,7 +2,6 @@ class User < ApplicationRecord
   has_many :timeline_logs, dependent: :destroy
   has_many :tweets, through: :timeline_logs
 
-  FAVORITE_COUNT = 50
   TWEET_FETCH_LIMIT = 200
   # timeline API limit
   FETCHING_COUNT_LIMIT = 4
@@ -15,7 +14,7 @@ class User < ApplicationRecord
 
       client.home_timeline(params).each do |fetched_tweet|
         fetched = tweets.map(&:tweet_id).include?(fetched_tweet.id.to_s)
-        next if fetched || fetched_tweet.favorite_count < FAVORITE_COUNT || tweets.find_by(tweet_id: fetched_tweet.id)
+        next if fetched || fetched_tweet.favorite_count < self.favorite_threshold || tweets.find_by(tweet_id: fetched_tweet.id)
         tweet = Tweet.find_by(tweet_id: fetched_tweet.id)
         if tweet.nil?
           tweet = self.tweets.create(tweet_id: fetched_tweet.id, favorite_count: fetched_tweet.favorite_count)

@@ -61,6 +61,8 @@ class TweetsTest < ApplicationSystemTestCase
 
     click_link(users(:user1).screen_name)
 
+    click_link('all tweets')
+
     add_favorite_button = first(:button, value: 'ふぁぼる')
 
     assert_not_nil(add_favorite_button)
@@ -87,6 +89,8 @@ class TweetsTest < ApplicationSystemTestCase
     click_link('twitter login')
 
     click_link(users(:user1).screen_name)
+
+    click_link('all tweets')
 
     assert_equal(5, all(:button, value: 'ふぁぼる').count)
 

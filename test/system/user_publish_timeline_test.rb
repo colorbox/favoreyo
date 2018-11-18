@@ -58,6 +58,8 @@ class UserPublishTImelineTest < ApplicationSystemTestCase
 
     click_link(users(:user2).screen_name)
 
+    click_link('all tweets')
+
     assert_equal(5, all('.tweet').count)
   end
 end

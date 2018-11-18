@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resource :sessions, only: %i(new destroy)
 
   resources :users, param: :screen_name, only: %i(index destroy update) do
+    resources :dates, only: %i(index)
     resources :tweets, only: %i(index)
   end
 

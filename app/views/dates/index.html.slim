@@ -1,0 +1,4 @@
+p = link_to 'all tweets', user_tweets_path(@selected_user.screen_name)
+
+- @dates.each do |date|
+  p = link_to date, user_tweets_path(user_screen_name: @selected_user.screen_name, date: date)

@@ -11,4 +11,5 @@ html
       = link_to 'mypage', mypage_path
     - else
       = link_to 'twitter login', "/auth/twitter?callback_url=#{new_sessions_url}"
+    hr
     = yield

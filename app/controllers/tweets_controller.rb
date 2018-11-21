@@ -9,6 +9,11 @@ class TweetsController < ApplicationController
     @tweets = selected_user.tweets.order(id: :desc).limit(5)
     @tweets.where!('tweets.id < ?', params[:last]) if params[:last]
 
+    if params[:date]
+      date = Date.parse(params[:date])
+      @tweets.where!('Date(tweets.created_at) = :date', date: date)
+    end
+
     respond_to do |format|
       format.html
       format.js

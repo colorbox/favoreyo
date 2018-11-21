@@ -32,3 +32,18 @@ tweet7:
   tweet_id: '977789121501446144'
   favorite_count: 0
   created_at: '2018-03-03 12:00:00'
+
+tweet8:
+  tweet_id: '1065190415010226176'
+  favorite_count: 0
+  created_at: '2018-03-03 12:00:00'
+
+tweet9:
+  tweet_id: '1064839033736425472'
+  favorite_count: 0
+  created_at: '2018-03-03 12:00:00'
+
+tweet10:
+  tweet_id: '1063820285583847424'
+  favorite_count: 0
+  created_at: '2018-03-04 12:00:00'

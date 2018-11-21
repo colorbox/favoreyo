@@ -1,7 +1,7 @@
 require 'application_system_test_case'
 
 class TweetsTest < ApplicationSystemTestCase
-  include ScrolHelper
+  include ScrollHelper
 
   setup do
     stub_request(:get, /https:\/\/api.twitter.com\/1.1\/statuses\/oembed.json.*/).to_return(

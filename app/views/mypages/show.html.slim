@@ -1,19 +1,19 @@
-= link_to 'logout', sessions_path, method: :delete
+p = link_to 'logout', sessions_path, method: :delete
 
-= link_to 'delete account', user_path(screen_name: @user.screen_name), method: :delete
+p = link_to 'delete account', user_path(screen_name: @user.screen_name), method: :delete
 
-= link_to 'timeline', user_tweets_path(user_screen_name: @user.screen_name)
+p = link_to 'timeline', user_tweets_path(user_screen_name: @user.screen_name)
 
-= form_for @user do |u|
-  = label_tag :favorite_threshold, 'フィルタ条件'
-  = u.text_field :favorite_threshold
-  = u.submit
-
-- if @user.timeline_published
-  = form_for @user do |u|
-    = u.hidden_field(:timeline_published, value: !@user.timeline_published)
-    = button_to 'unpublish timeline', user_path(@user), method: :patch
-- else
-  = form_for @user do |u|
-    = u.hidden_field(:timeline_published, value: !@user.timeline_published)
-    = button_to 'publish timeline', user_path(@user), method: :patch
+p = form_for @user do |u|
+    = label_tag :favorite_threshold, 'フィルタ条件'
+    = u.text_field :favorite_threshold
+    = u.submit
+p
+  - if @user.timeline_published
+    = form_for @user do |u|
+      = u.hidden_field(:timeline_published, value: !@user.timeline_published)
+      = button_to 'unpublish timeline', user_path(@user), method: :patch
+  - else
+    = form_for @user do |u|
+      = u.hidden_field(:timeline_published, value: !@user.timeline_published)
+      = button_to 'publish timeline', user_path(@user), method: :patch

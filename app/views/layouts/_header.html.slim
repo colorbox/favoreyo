@@ -1,0 +1,5 @@
+- if @user
+  = link_to 'mypage', mypage_path
+  = link_to 'all users', users_path
+- else
+  = link_to 'twitter login', "/auth/twitter?callback_url=#{new_sessions_url}"

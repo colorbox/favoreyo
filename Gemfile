@@ -10,6 +10,7 @@ end
 
 gem 'rails', github: 'rails/rails'
 
+gem 'bootstrap'
 gem 'coffee-rails'
 gem 'jbuilder'
 gem 'jquery-rails'

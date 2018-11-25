@@ -1,0 +1,9 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  - if user
+    = link_to 'ふぁぼれよ', user_tweets_path(user_screen_name: user.screen_name), class: 'navbar-brand'
+    = link_to 'all users', users_path, class: 'nav-link'
+    = link_to 'mypage', mypage_path, class: 'nav-link'
+    = link_to 'logout', sessions_path, method: :delete, class: 'nav-link'
+  - else
+    .navbar-brand ふぁぼれよ
+    = link_to 'twitter login', "/auth/twitter?callback_url=#{new_sessions_url}"

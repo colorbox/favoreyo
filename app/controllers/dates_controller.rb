@@ -1,4 +1,6 @@
 class DatesController < ApplicationController
+  before_action :set_user
+
   def index
     @selected_user = User.find_by(screen_name: params[:user_screen_name])
     @dates = @selected_user.tweets.select('date(tweets.created_at) as created_on')

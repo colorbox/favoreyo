@@ -1,0 +1,2 @@
+class ListLog < ApplicationRecord
+end

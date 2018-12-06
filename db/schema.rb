@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2018_12_03_145253) do
 
   create_table "lists", force: :cascade do |t|
     t.bigint "user_id"
+    t.string "name", default: "", null: false
+    t.string "list_identifier", default: "", null: false
     t.boolean "published", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

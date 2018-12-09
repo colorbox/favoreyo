@@ -13,21 +13,29 @@ class User < ApplicationRecord
       params[:max_id] = last_tweet.tweet_id if last_tweet
       client = TwitterClient.build_client(access_token, access_token_secret)
 
-      client.home_timeline(params).each do |fetched_tweet|
-        fetched = tweets.map(&:tweet_id).include?(fetched_tweet.id.to_s)
-        next if fetched || fetched_tweet.favorite_count < self.favorite_threshold || tweets.find_by(tweet_id: fetched_tweet.id)
-        tweet = Tweet.find_by(tweet_id: fetched_tweet.id)
-        if tweet.nil?
-          tweet = self.tweets.create(tweet_id: fetched_tweet.id, favorite_count: fetched_tweet.favorite_count)
-        else
-          self.tweets << tweet
-          save!
-        end
-
-        last_tweet = tweet
-      end
+      save_tweets(client.home_timeline(params))
     end
   rescue Twitter::Error::TooManyRequests => e
     raise e
+  end
+
+  private
+
+  def save_tweets(tweets)
+    last_tweet = nil
+    tweets.inject(nil) do |last_tweet, fetched_tweet|
+      fetched = tweets.map(&:tweet_id).include?(fetched_tweet.id.to_s)
+      next if fetched || fetched_tweet.favorite_count < self.favorite_threshold || tweets.find_by(tweet_id: fetched_tweet.id)
+      tweet = Tweet.find_by(tweet_id: fetched_tweet.id)
+      if tweet.nil?
+        tweet = self.tweets.create(tweet_id: fetched_tweet.id, favorite_count: fetched_tweet.favorite_count)
+      else
+        self.tweets << tweet
+        save!
+      end
+
+      last_tweet = tweet
+    end 
+    return last_tweet
   end
 end

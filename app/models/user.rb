@@ -11,6 +11,7 @@ class User < ApplicationRecord
     FETCHING_COUNT_LIMIT.times do
       params = {count: TWEET_FETCH_LIMIT}
       params[:max_id] = last_tweet.tweet_id if last_tweet
+      client = TwitterClient.build_client(access_token, access_token_secret)
 
       client.home_timeline(params).each do |fetched_tweet|
         fetched = tweets.map(&:tweet_id).include?(fetched_tweet.id.to_s)
@@ -28,16 +29,5 @@ class User < ApplicationRecord
     end
   rescue Twitter::Error::TooManyRequests => e
     raise e
-  end
-
-  private
-
-  def client
-    @client ||= Twitter::REST::Client.new do |config|
-      config.consumer_key = ENV['CONSUMER_KEY']
-      config.consumer_secret = ENV['CONSUMER_SECRET']
-      config.access_token = access_token
-      config.access_token_secret = access_token_secret
-    end
   end
 end

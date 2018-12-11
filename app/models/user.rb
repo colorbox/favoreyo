@@ -8,12 +8,12 @@ class User < ApplicationRecord
 
   def fetch_favorites_from_timeline
     last_tweet = nil
+    client = TwitterClient.build_client(access_token, access_token_secret)
     FETCHING_COUNT_LIMIT.times do
       params = {count: TWEET_FETCH_LIMIT}
       params[:max_id] = last_tweet.tweet_id if last_tweet
-      client = TwitterClient.build_client(access_token, access_token_secret)
 
-      save_tweets(client.home_timeline(params))
+      last_tweet = save_tweets(client.home_timeline(params))
     end
   rescue Twitter::Error::TooManyRequests => e
     raise e
@@ -21,9 +21,9 @@ class User < ApplicationRecord
 
   private
 
-  def save_tweets(tweets)
+  def save_tweets(fethed_tweets)
     last_tweet = nil
-    tweets.inject(nil) do |last_tweet, fetched_tweet|
+    fethed_tweets.each do |fetched_tweet|
       fetched = tweets.map(&:tweet_id).include?(fetched_tweet.id.to_s)
       next if fetched || fetched_tweet.favorite_count < self.favorite_threshold || tweets.find_by(tweet_id: fetched_tweet.id)
       tweet = Tweet.find_by(tweet_id: fetched_tweet.id)
@@ -33,9 +33,8 @@ class User < ApplicationRecord
         self.tweets << tweet
         save!
       end
-
       last_tweet = tweet
-    end 
+    end
     return last_tweet
   end
 end

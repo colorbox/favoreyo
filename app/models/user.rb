@@ -22,7 +22,8 @@ class User < ApplicationRecord
 
   def fetch_lists
     client = TwitterClient.build_client(access_token, access_token_secret)
-    save_lists(client.owned_lists)
+    # 1000 lists is enough for one user
+    save_lists(client.owned_lists(count: 1000))
   end
 
   private

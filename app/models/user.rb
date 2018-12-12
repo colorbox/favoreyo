@@ -32,7 +32,6 @@ class User < ApplicationRecord
     fetched_lists.each do |fetched_list|
       next if lists.map(&:list_identifier).include?(fetched_list.id)
       lists.create(list_identifier: fetched_list.id, name: fetched_list.name)
-      end
     end
   end
 

@@ -31,8 +31,7 @@ class User < ApplicationRecord
   def save_lists(fetched_lists)
     fetched_lists.each do |fetched_list|
       next if lists.map(&:list_identifier).include?(fetched_list.id)
-      if lists.find_by(list_identifier: fetched_list.id).nil?
-        lists.create(list_identifier: fetched_list.id, name: fetched_list.name)
+      lists.create(list_identifier: fetched_list.id, name: fetched_list.name)
       end
     end
   end
@@ -51,6 +50,6 @@ class User < ApplicationRecord
       end
       last_tweet = tweet
     end
-    return last_tweet
+    last_tweet
   end
 end

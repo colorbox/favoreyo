@@ -15,3 +15,6 @@ main.container
       = form_for @user do |u|
         = u.hidden_field(:timeline_published, value: !@user.timeline_published)
         = button_to 'publish timeline', user_path(@user), method: :patch
+
+  p
+    = link_to 'lists', lists_path

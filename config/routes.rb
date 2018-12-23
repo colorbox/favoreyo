@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   resources :tweets, only: %i(index) do
     resource :favorite, only: %i(create destroy)
   end
+
+  resources :list_tweets, only: %i(index)
 end

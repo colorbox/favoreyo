@@ -6,6 +6,13 @@ namespace :tweet do
     end
   end
 
+  desc 'fetch popular tweets from user lists'
+  task fetch_from_list: :environment do
+    User.all.each do |user|
+      user.fetch_favorites_from_lists
+    end
+  end
+
   TWEET_STORE_LIMIT = 1000
   desc 'remove old tweets in system'
   task remove: :environment do

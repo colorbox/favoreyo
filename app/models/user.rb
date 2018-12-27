@@ -64,14 +64,10 @@ class User < ApplicationRecord
   end
 
   def save_list_tweets(fetched_tweets, list)
-    pp list
     fetched_tweets.each do |fetched_tweet|
       fetched = tweets.map(&:tweet_id).include?(fetched_tweet.id.to_s)
       next if fetched || fetched_tweet.favorite_count < self.favorite_threshold || tweets.find_by(tweet_id: fetched_tweet.id)
       tweet = Tweet.find_by(tweet_id: fetched_tweet.id)
-      pp '----'
-      pp tweet
-      pp '----'
       if tweet.nil?
         list.tweets.create(tweet_id: fetched_tweet.id, favorite_count: fetched_tweet.favorite_count)
       else

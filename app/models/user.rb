@@ -10,7 +10,7 @@ class User < ApplicationRecord
   def fetch_favorites_from_lists
     lists.each do |list|
       last_tweet = nil
-      client = TwitterClient.build_client(access_token, access_token_secret)
+      client = TwitterClient.client(access_token, access_token_secret)
       FETCHING_COUNT_LIMIT.times do
         params = {count: TWEET_FETCH_LIMIT, list_id: list.list_identifier}
         params[:max_id] = last_tweet.id.to_s if last_tweet
@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   def fetch_favorites_from_timeline
     last_tweet = nil
-    client = TwitterClient.build_client(access_token, access_token_secret)
+    client = TwitterClient.client(access_token, access_token_secret)
     FETCHING_COUNT_LIMIT.times do
       params = {count: TWEET_FETCH_LIMIT}
       params[:max_id] = last_tweet.id.to_s if last_tweet
@@ -34,7 +34,7 @@ class User < ApplicationRecord
   end
 
   def fetch_lists
-    client = TwitterClient.build_client(access_token, access_token_secret)
+    client = TwitterClient.client(access_token, access_token_secret)
     # 1000 lists is enough for one user
     save_lists(client.owned_lists(count: 1000))
   end

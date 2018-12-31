@@ -1,2 +1,5 @@
 main.container
-  = "list_tweet"
+  #tweets
+    = render @tweets, user: @user
+
+  = paginate @tweets

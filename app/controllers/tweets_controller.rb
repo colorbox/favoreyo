@@ -14,9 +14,6 @@ class TweetsController < ApplicationController
       @tweets.where!('Date(tweets.created_at) = :date', date: date)
     end
 
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    respond_to :html, :js
   end
 end

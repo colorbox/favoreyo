@@ -1,0 +1,10 @@
+p
+  = link_to list.name, list_tweets_path(list_id: list.id)
+- if list.published
+  = form_for list do |l|
+    = l.hidden_field(:published, value: !list.published)
+    = button_to "unpublish #{list.name}"
+- else
+  = form_for list do |l|
+    = l.hidden_field(:published, value: !list.published)
+    = button_to "publish #{list.name}"

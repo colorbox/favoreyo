@@ -14,5 +14,5 @@ test:
 production:
   <<: *default
   database: favoreyo_production
-#  username: favoreyo
+  username: favoreyo
   password: <%= ENV['FAVOREYO_DATABASE_PASSWORD'] %>

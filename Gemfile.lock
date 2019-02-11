@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: d87afbf46f87a7fb8e9fef5c1b8422cdf386f4cb
+  revision: 713cee01a5391b1ca56e25883c6c172ae59d7020
   specs:
     actioncable (6.0.0.beta1)
       actionpack (= 6.0.0.beta1)
@@ -302,6 +302,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap
+  bundler (= 2.0.1)
   byebug
   capybara
   coffee-rails
@@ -329,4 +330,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.17.1
+   2.0.1

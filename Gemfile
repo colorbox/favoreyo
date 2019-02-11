@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.5.0'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -11,6 +10,7 @@ end
 gem 'rails', github: 'rails/rails'
 
 gem 'bootstrap'
+gem 'bundler', '2.0.1'
 gem 'coffee-rails'
 gem 'jbuilder'
 gem 'jquery-rails'

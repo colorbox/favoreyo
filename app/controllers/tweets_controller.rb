@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :set_request_variant
   before_action :set_user
 
   def index
@@ -14,6 +15,12 @@ class TweetsController < ApplicationController
       @tweets.where!('Date(tweets.created_at) = :date', date: date)
     end
 
-    respond_to :html, :js
+    respond_to :html, :'html.smartphone', :js
+  end
+
+  private
+
+  def set_request_variant
+    request.variant = request.device_variant # :pc, :smartphone
   end
 end

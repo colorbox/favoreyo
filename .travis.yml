@@ -4,8 +4,8 @@ cache: bundler
 dist: trusty
 
 rvm:
-  - 2.5.3
-  - 2.6.1
+  - 2.5.5
+  - 2.6.3
   - ruby-head
 
 services:
@@ -13,7 +13,7 @@ services:
 
 env:
   DISPLAY: :99.0
-  CHROME_DRIVER_VERSION: '2.38'
+  CHROME_DRIVER_VERSION: '75.0.3770.8'
 
 addons:
   chrome: stable

@@ -32,6 +32,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'selenium-webdriver'
+  gem 'webdrivers'
   gem 'webmock'
 end
 

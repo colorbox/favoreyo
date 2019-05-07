@@ -13,7 +13,7 @@ services:
 
 env:
   DISPLAY: :99.0
-  CHROME_DRIVER_VERSION: '2.38'
+  CHROME_DRIVER_VERSION: '75.0.3770.8'
 
 addons:
   chrome: stable

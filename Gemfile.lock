@@ -302,7 +302,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap
-  bundler (= 1.17.3)
+  bundler
   byebug
   capybara
   coffee-rails
@@ -325,11 +325,10 @@ DEPENDENCIES
   spring-watcher-listen
   turbolinks
   twitter
-  tzinfo-data
   uglifier
   web-console
   webdrivers
   webmock
 
 BUNDLED WITH
-   1.17.3
+   2.0.2

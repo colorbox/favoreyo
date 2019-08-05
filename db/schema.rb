@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2018_12_27_125946) do
   create_table "list_logs", force: :cascade do |t|
     t.bigint "list_id"
     t.bigint "tweet_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["list_id"], name: "index_list_logs_on_list_id"
     t.index ["tweet_id"], name: "index_list_logs_on_tweet_id"
   end
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 2018_12_27_125946) do
     t.string "name", default: "", null: false
     t.string "list_identifier", default: "", null: false
     t.boolean "published", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "lists_threshold", default: 50, null: false
     t.index ["user_id"], name: "index_lists_on_user_id"
   end
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2018_12_27_125946) do
   create_table "timeline_logs", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "tweet_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["tweet_id"], name: "index_timeline_logs_on_tweet_id"
     t.index ["user_id"], name: "index_timeline_logs_on_user_id"
   end
@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 2018_12_27_125946) do
     t.string "twitter_uid", null: false
     t.string "access_token"
     t.string "access_token_secret"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.boolean "timeline_published", default: false, null: false
     t.integer "favorite_threshold", default: 50, null: false
   end

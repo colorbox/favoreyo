@@ -10,7 +10,7 @@ end
 gem 'rails', github: 'rails/rails'
 
 gem 'bootstrap'
-gem 'bundler', '1.17.3'
+gem 'bundler'
 gem 'coffee-rails'
 gem 'jbuilder'
 gem 'jquery-rails'
@@ -42,5 +42,3 @@ group :development do
   gem 'spring-watcher-listen'
   gem 'web-console'
 end
-
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

@@ -325,7 +325,6 @@ DEPENDENCIES
   spring-watcher-listen
   turbolinks
   twitter
-  tzinfo-data
   uglifier
   web-console
   webdrivers

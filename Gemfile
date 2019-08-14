@@ -13,7 +13,7 @@ gem 'bootstrap'
 gem 'bundler'
 gem 'coffee-rails'
 gem 'jbuilder'
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.3.5'
 gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-twitter'
@@ -28,11 +28,11 @@ gem 'uglifier'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'capybara'
+  gem 'capybara', '>= 3.27.0'
   gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'selenium-webdriver'
-  gem 'webdrivers'
+  gem 'webdrivers', '>= 4.1.2'
   gem 'webmock'
 end
 

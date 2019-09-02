@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 4c8c8c87b07844b26564ca6aa2052660e601bc3d
+  revision: d05f1f036ff4987918c907eb7e78ef8e8eedd6ea
   specs:
     actioncable (6.1.0.alpha)
       actionpack (= 6.1.0.alpha)
@@ -25,7 +25,7 @@ GIT
       rack (~> 2.0)
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
-      rails-html-sanitizer (~> 1.0, >= 1.0.2)
+      rails-html-sanitizer (~> 1.0, >= 1.2.0)
     actiontext (6.1.0.alpha)
       actionpack (= 6.1.0.alpha)
       activerecord (= 6.1.0.alpha)
@@ -37,7 +37,7 @@ GIT
       builder (~> 3.1)
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
-      rails-html-sanitizer (~> 1.0, >= 1.0.3)
+      rails-html-sanitizer (~> 1.1, >= 1.2.0)
     activejob (6.1.0.alpha)
       activesupport (= 6.1.0.alpha)
       globalid (>= 0.3.6)
@@ -179,8 +179,8 @@ GEM
     minitest (5.11.3)
     multipart-post (2.1.1)
     naught (1.1.0)
-    nio4r (2.4.0)
-    nokogiri (1.10.3)
+    nio4r (2.5.1)
+    nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
     omniauth (1.9.0)
@@ -212,7 +212,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.0.4)
+    rails-html-sanitizer (1.2.0)
       loofah (~> 2.2, >= 2.2.2)
     rake (12.3.3)
     rb-fsevent (0.10.3)

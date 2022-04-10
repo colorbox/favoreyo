@@ -6,4 +6,4 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
     = link_to 'logout', sessions_path, method: :delete, class: 'nav-link'
   - else
     .navbar-brand ふぁぼれよ
-    = link_to 'twitter login', "/auth/twitter?callback_url=#{new_sessions_url}"
+    = link_to 'twitter login', "/auth/twitter?callback_url=#{new_sessions_url}", method: :post

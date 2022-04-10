@@ -1,16 +1,13 @@
-FROM ruby:2.6.3
+FROM ruby:2.7.5
 
 RUN apt-get update -qq && apt-get install -y build-essential nodejs  postgresql-client
 
-RUN mkdir /favoreyo
-
 WORKDIR /favoreyo
-COPY Gemfile /favoreyo/Gemfile
-COPY Gemfile.lock /favoreyo/Gemfile.lock
 
-RUN gem install bundler -v 2.0.2
-
-RUN bundle install
+COPY Gemfile  Gemfile.lock /favoreyo/
+RUN gem update --no-document --system 3.3.4 && \
+    gem install --no-document bundler:2.3.4 && \
+    bundle install
 RUN bundle exec rails assets:precompile
 
 COPY . /favoreyo

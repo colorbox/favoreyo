@@ -4,7 +4,7 @@ cache: bundler
 dist: trusty
 
 rvm:
-  - 2.6.3
+  - 2.7.1
   - ruby-head
 
 jobs:

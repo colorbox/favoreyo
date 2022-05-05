@@ -2,12 +2,14 @@
 
 source 'https://rubygems.org'
 
+ruby '2.7.5'
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', github: 'rails/rails'
+gem 'rails', '6.1.5'
 
 gem 'bootstrap'
 gem 'bundler'
@@ -17,6 +19,7 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'omniauth-rails_csrf_protection'
 gem 'pg'
 gem 'puma'
 gem 'rack-user_agent'
@@ -29,10 +32,10 @@ gem 'uglifier'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
+  gem 'dotenv'
   gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'selenium-webdriver'
-  gem 'webdrivers'
   gem 'webmock'
 end
 

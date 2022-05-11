@@ -21,7 +21,7 @@ class TweetsTest < ApplicationSystemTestCase
 
     scroll_to(last_tweet)
 
-    scroll_to(all('.tweet').last)
+    sleep(3)
 
     assert_equal 9, all('.tweet').count
 

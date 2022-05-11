@@ -4,7 +4,9 @@ services:
   db:
     image: postgres
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - type: volume
+        source: favoreyo-db-volume
+        target: /var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
   web:
@@ -21,3 +23,6 @@ services:
     image: selenium/standalone-chrome-debug
     ports:
       - 4444:4444
+
+volumes:
+  favoreyo-db-volume:

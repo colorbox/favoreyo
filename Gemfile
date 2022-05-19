@@ -13,6 +13,7 @@ gem 'rails', '6.1.5'
 
 gem 'bootstrap'
 gem 'bundler'
+gem 'discordrb'
 gem 'coffee-rails'
 gem 'jbuilder'
 gem 'jquery-rails'

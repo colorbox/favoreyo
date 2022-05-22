@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :timeline_logs, dependent: :destroy
   has_many :tweets, through: :timeline_logs
   has_many :lists, dependent: :destroy
+  has_many :deliverers
 
   TWEET_FETCH_LIMIT = 200
   # timeline API limit

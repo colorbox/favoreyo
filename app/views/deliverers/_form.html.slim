@@ -1,0 +1,22 @@
+= form_with model: deliverer do |deliverer_form|
+  div
+    = 'Name'
+    = deliverer_form.text_field :name
+  div
+    Discord token
+    = deliverer_form.text_field :discord_token
+  div
+    Discord channel identifier
+    = deliverer_form.text_field :discord_channel_identifier
+  div
+    = deliverer_form.submit
+
+    - if deliverer.errors.any?
+      div{style="color: red"}
+        h2
+          = "#{pluralize(deliverer.errors.count, 'error')} prohibited this deliverer from being saved"
+
+        ul
+          - deliverer.errors.each do |error|
+            li
+              = error.full_message

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :lists, only: %i(index show create)
   resources :list_tweets, only: %i(index)
 
+  resources :deliverers, only: %i(new index edit create destroy)
+
   resources :tweets, only: %i(index) do
     resource :favorite, only: %i(create destroy)
   end

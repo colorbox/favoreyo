@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_27_125946) do
+ActiveRecord::Schema.define(version: 2022_05_18_135213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "deliverers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name", null: false
+    t.string "discord_token", null: false
+    t.string "discord_channel_identifier", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_deliverers_on_user_id"
+  end
 
   create_table "list_logs", force: :cascade do |t|
     t.integer "list_id"

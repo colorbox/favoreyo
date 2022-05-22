@@ -11,6 +11,4 @@ Capybara.app_host = "http://#{IPSocket.getaddress(Socket.gethostname)}"
 Capybara.server_host = '0.0.0.0'
 Capybara.server_port = '3000'
 Capybara.always_include_port = true
-
-
-# Capybara.javascript_driver = :chrome
+Capybara.javascript_driver = :chrome

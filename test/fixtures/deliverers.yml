@@ -1,0 +1,5 @@
+deliverer1:
+  user: user1
+  name: 'the first deliverer'
+  discord_token: 'discord_token'
+  discord_channel_identifier: 'ch_idsntifier'

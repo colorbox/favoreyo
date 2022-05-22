@@ -1,0 +1,5 @@
+p
+  = form_for deliverer, method: :delete do |deliverer_form|
+    = deliverer.id
+    = deliverer.name
+    = deliverer_form.button 'delete'

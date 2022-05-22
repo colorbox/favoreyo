@@ -12,6 +12,7 @@ capybara-*.html
 *.orig
 rerun.txt
 pickle-email-*.html
+.docker_bundle/*
 
 config/initializers/secret_token.rb
 

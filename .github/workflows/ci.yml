@@ -12,9 +12,9 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: create test database for test
-        run: docker compose run web bin/rails db:setup
+        run: docker compose run app bin/rails db:setup
         working-directory: ./
 
       - name: run test on docker-compose
-        run: docker compose run web bin/rails test:system
+        run: docker compose run app bin/rails test:system
         working-directory: ./

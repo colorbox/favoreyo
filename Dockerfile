@@ -1,6 +1,6 @@
 FROM ruby:2.7.5
 
-RUN apt-get update -qq && apt-get install -y build-essential nodejs  postgresql-client
+RUN apt-get update -qq && apt-get install -y build-essential nodejs postgresql-client
 
 WORKDIR /favoreyo
 

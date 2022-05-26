@@ -19,6 +19,8 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
+VOLUME /usr/local/bundle
+
 #RUN if [ "$RAILS_ENV" = "production" ]; then SECRET_KEY_BASE=$(bundle exec rails secret) bundle exec rails assets:precompile; fi
 
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]

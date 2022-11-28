@@ -25,6 +25,7 @@ gem 'pg'
 gem 'puma'
 gem 'rack-user_agent'
 gem 'sass-rails'
+gem 'sd_notify'
 gem 'slim'
 gem 'turbolinks'
 gem 'twitter'
@@ -45,4 +46,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'web-console'
+  gem 'capistrano', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano-bundler', require: false
 end

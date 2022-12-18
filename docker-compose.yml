@@ -6,7 +6,7 @@ volumes:
 
 services:
   db:
-    image: postgres
+    image: postgres:15.1
     volumes:
       - type: volume
         source: favoreyo-db-volume

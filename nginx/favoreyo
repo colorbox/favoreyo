@@ -1,0 +1,22 @@
+upstream favoreyo {
+  server unix:///var/app/favoreyo/current/tmp/sockets/puma.sock;
+}
+
+server {
+  listen 4000;
+  server_name favoreyo;
+
+  location / {
+    proxy_read_timeout 300;
+    proxy_connect_timeout 300;
+    proxy_redirect off;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_pass http://favoreyo;
+  }
+
+  location ~ ^/assets/(.*) {
+    alias /var/app/favoreyo/current/public/assets/$1;
+  }
+}

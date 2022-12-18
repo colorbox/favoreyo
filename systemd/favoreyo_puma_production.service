@@ -1,0 +1,30 @@
+# This file tells systemd how to run Puma as a 24/7 long-running daemon.
+#
+# Customize this file based on your bundler location, app directory, etc.
+# Customize and copy this into /usr/lib/systemd/system (CentOS) or /lib/systemd/system (Ubuntu).
+# Then run:
+#   - systemctl enable favoreyo_puma_production
+#   - systemctl {start,stop,restart} favoreyo_puma_production
+#
+#
+# Use `journalctl -u favoreyo_puma_production -rn 100` to view the last 100 lines of log output.
+#
+[Unit]
+Description=Puma HTTP Server for favoreyo (production)
+After=syslog.target network.target
+
+[Service]
+Type=simple
+WatchdogSec=10
+User=favoreyo
+WorkingDirectory=/var/app/favoreyo/current
+ExecStart=/bin/bash -login -c 'source /home/favoreyo/environment_variable_and_rbenv_initialize && bundle exec puma -C /var/app/favoreyo/current/config/puma/production.rb'
+# if we crash, restart
+RestartSec=1
+Restart=always
+StandardOutput=append:/var/app/favoreyo/shared/log/puma.access.log
+StandardError=append:/var/app/favoreyo/shared/log/puma.error.log
+SyslogIdentifier=favoreyo_puma_production
+
+[Install]
+WantedBy=multi-user.target

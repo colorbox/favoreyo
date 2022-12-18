@@ -18,4 +18,5 @@ production:
   <<: *default
   database: favoreyo_production
   username: favoreyo
+  host: localhost
   password: <%= ENV['FAVOREYO_DATABASE_PASSWORD'] %>
